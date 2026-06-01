@@ -3,46 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Christian  Sidibe</title>
+  <title>Christian Sidibe | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Variables ── */
-    :root {
-      --bg:       #0a0a0f;
-      --bg2:      #12121a;
-      --bg3:      #1a1a26;
-      --border:   #2a2a3d;
-      --accent:   #6c63ff;
-      --accent2:  #00d4aa;
-      --text:     #e8e8f0;
-      --muted:    #7a7a9a;
-      --mono:     'Space Mono', monospace;
-      --sans:     'Syne', sans-serif;
-    }
-
-    /* ── Reset ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      line-height: 1.6;
-      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 1rem;
     }
 
-    /* ── Bruit de fond ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── Nav ── */
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -50,518 +26,455 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 3rem;
-      background: rgba(10,10,15,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 3.5rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e8e8e8;
     }
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: .85rem;
-      color: var(--accent2);
-      letter-spacing: .1em;
-    }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: .75rem;
-      color: var(--muted);
+    .nav-name {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a1a1a;
       text-decoration: none;
-      letter-spacing: .08em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .85rem;
+      color: #666;
+      text-decoration: none;
       transition: color .2s;
     }
-    .nav-links a:hover { color: var(--accent2); }
+    .nav-links a:hover { color: #1a1a1a; }
 
-    /* ── Sections communes ── */
-    section {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 720px;
       margin: 0 auto;
-      padding: 7rem 2rem 4rem;
+      padding: 0 2rem;
     }
-    .section-label {
-      font-family: var(--mono);
-      font-size: .7rem;
-      color: var(--accent);
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 10rem;
+      padding-bottom: 5rem;
     }
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      line-height: 1.1;
+    #hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: #111;
+    }
+    #hero h1 em {
+      font-style: italic;
+      color: #444;
+    }
+    .hero-intro {
+      font-size: 1.05rem;
+      color: #444;
+      max-width: 580px;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .hero-story {
+      font-size: .95rem;
+      color: #666;
+      max-width: 580px;
+      line-height: 1.8;
       margin-bottom: 2.5rem;
     }
-    .divider {
+    .hero-photo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e0e0e0;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      color: #aaa;
+      text-align: center;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .hero-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-links a {
+      font-size: .9rem;
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1px;
+      transition: border-color .2s, color .2s;
+    }
+    .hero-links a:hover { color: #000; border-color: #000; }
+
+    /* ── SEPARATEUR ── */
+    .sep {
       border: none;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #e8e8e8;
       margin: 0;
     }
 
-    /* ── Hero ── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 5rem;
+    /* ── SECTIONS ── */
+    .section {
+      padding: 4.5rem 0;
     }
-    .hero-eyebrow {
-      font-family: var(--mono);
+    .section-label {
       font-size: .75rem;
-      color: var(--accent2);
-      letter-spacing: .2em;
+      color: #999;
+      letter-spacing: .1em;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
-    .hero-name {
-      font-size: clamp(3rem, 9vw, 7rem);
-      font-weight: 800;
-      line-height: .95;
-      letter-spacing: -.02em;
-    }
-    .hero-name span { color: var(--accent); }
-    .hero-tagline {
-      margin-top: 1.5rem;
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .hero-photo-wrap {
-      margin-top: 3rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .hero-photo {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--accent);
-      background: var(--bg3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .hero-photo-placeholder {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      border: 2px dashed var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: .65rem;
-      text-align: center;
-      padding: 1rem;
-    }
-    .hero-contacts { display: flex; flex-direction: column; gap: .5rem; }
-    .hero-contacts a {
-      font-family: var(--mono);
-      font-size: .8rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .hero-contacts a:hover { color: var(--accent2); }
-    .hero-contacts a::before { content: '→ '; color: var(--accent); }
-
-    .scroll-hint {
-      margin-top: 4rem;
-      font-family: var(--mono);
-      font-size: .7rem;
-      color: var(--border);
-      letter-spacing: .15em;
-      animation: blink 2s infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-
-    /* ── Parcours scolaire ── */
-    .timeline { display: flex; flex-direction: column; gap: 0; }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 0 2rem;
-      position: relative;
-    }
-    .timeline-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      left: 119px;
-      top: 2.2rem;
-      bottom: -1px;
-      width: 1px;
-      background: var(--border);
-    }
-    .timeline-year {
-      font-family: var(--mono);
-      font-size: .75rem;
-      color: var(--accent2);
-      padding-top: .1rem;
-      text-align: right;
-    }
-    .timeline-content {
-      padding-bottom: 2.5rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    .timeline-content::before {
-      content: '';
-      position: absolute;
-      left: -5px;
-      top: .45rem;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid var(--bg);
-    }
-    .timeline-content h3 {
-      font-size: 1rem;
+    .section h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 600;
-      margin-bottom: .25rem;
+      margin-bottom: 1.8rem;
+      color: #111;
     }
-    .timeline-content p {
-      font-family: var(--mono);
-      font-size: .75rem;
-      color: var(--muted);
-      margin-bottom: .4rem;
-    }
-    .mention {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: .65rem;
-      background: rgba(108,99,255,.15);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 3px;
-      padding: .1rem .5rem;
-      letter-spacing: .05em;
-    }
-
-    /* ── Compétences ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.2rem;
-    }
-    .skill-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      transition: border-color .2s, transform .2s;
-    }
-    .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .skill-card h3 {
-      font-family: var(--mono);
-      font-size: .7rem;
-      color: var(--accent2);
-      letter-spacing: .15em;
-      text-transform: uppercase;
+    .section p {
+      font-size: .95rem;
+      color: #555;
+      line-height: 1.8;
       margin-bottom: 1rem;
     }
-    .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+
+    /* ── FORMATIONS ── */
+    .formation-list { display: flex; flex-direction: column; gap: 0; }
+    .formation-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 0 1.2rem;
+      padding: 1.6rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      position: relative;
+    }
+    .formation-item:last-child { border-bottom: none; }
+    .formation-arrow {
+      color: #bbb;
+      font-size: 1.1rem;
+      padding-top: .1rem;
+      text-align: center;
+    }
+    .formation-body h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: .25rem;
+    }
+    .formation-body .org {
+      font-size: .88rem;
+      color: #666;
+      margin-bottom: .2rem;
+    }
+    .formation-body .date {
+      font-size: .8rem;
+      color: #aaa;
+      margin-bottom: .4rem;
+    }
+    .formation-body .details {
+      font-size: .85rem;
+      color: #777;
+    }
+    .badge {
+      display: inline-block;
+      font-size: .72rem;
+      padding: .15rem .6rem;
+      border-radius: 20px;
+      border: 1px solid #d5d5d5;
+      color: #555;
+      margin-top: .4rem;
+    }
+
+    /* ── COMPÉTENCES ── */
+    .skills-section { margin-bottom: 2rem; }
+    .skills-section h3 {
+      font-size: .8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #888;
+      margin-bottom: .8rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
     .tag {
-      font-family: var(--mono);
-      font-size: .7rem;
-      padding: .25rem .6rem;
-      border-radius: 4px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      color: var(--text);
+      font-size: .82rem;
+      padding: .3rem .8rem;
+      border-radius: 20px;
+      border: 1px solid #e0e0e0;
+      color: #444;
+      background: #fafafa;
     }
-    .tag.lang {
-      background: rgba(0,212,170,.08);
-      border-color: rgba(0,212,170,.3);
-      color: var(--accent2);
-    }
-    .lang-level {
-      display: flex;
-      flex-direction: column;
-      gap: .6rem;
-    }
+
+    .lang-list { display: flex; flex-direction: column; gap: .7rem; }
     .lang-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: .9rem;
+      padding-bottom: .7rem;
+      border-bottom: 1px solid #f0f0f0;
     }
-    .lang-row span:first-child {
-      font-family: var(--mono);
-      font-size: .8rem;
-    }
-    .lang-row span:last-child {
-      font-family: var(--mono);
-      font-size: .65rem;
-      color: var(--accent2);
-      border: 1px solid rgba(0,212,170,.3);
-      padding: .1rem .4rem;
-      border-radius: 3px;
+    .lang-row:last-child { border-bottom: none; }
+    .lang-row .flag-name { color: #333; }
+    .lang-row .level {
+      font-size: .78rem;
+      color: #999;
+      border: 1px solid #e0e0e0;
+      padding: .1rem .6rem;
+      border-radius: 20px;
     }
 
-    /* ── Projets ── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.4rem;
+    /* ── PROJETS ── */
+    .project-list { display: flex; flex-direction: column; gap: 0; }
+    .project-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid #f0f0f0;
     }
-    .project-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.8rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      transition: border-color .2s, transform .2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      opacity: 0;
-      transition: opacity .2s;
-    }
-    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .project-card:hover::before { opacity: 1; }
-    .project-type {
-      font-family: var(--mono);
-      font-size: .65rem;
-      color: var(--muted);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-    .project-card h3 { font-size: 1.05rem; font-weight: 700; }
-    .project-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; flex: 1; }
-    .project-link {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: .72rem;
-      color: var(--accent2);
-      text-decoration: none;
+    .project-item:last-child { border-bottom: none; }
+    .project-meta {
+      font-size: .75rem;
+      color: #aaa;
       letter-spacing: .05em;
-      transition: opacity .2s;
-    }
-    .project-link:hover { opacity: .7; }
-    .project-link::after { content: ' ↗'; }
-
-    /* ── PPP ── */
-    .ppp-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
-    .ppp-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-    }
-    .ppp-card h3 {
-      font-family: var(--mono);
-      font-size: .7rem;
-      color: var(--accent);
-      letter-spacing: .15em;
       text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .project-item h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: .6rem;
+    }
+    .project-item p {
+      font-size: .9rem;
+      color: #666;
+      line-height: 1.75;
       margin-bottom: .8rem;
     }
-    .ppp-card p { font-size: .9rem; color: var(--muted); line-height: 1.6; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .8rem; }
+    .project-tag {
+      font-size: .75rem;
+      padding: .2rem .65rem;
+      border-radius: 20px;
+      border: 1px solid #e0e0e0;
+      color: #777;
+      background: #fafafa;
+    }
+    .project-link {
+      font-size: .85rem;
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1px;
+      transition: color .2s, border-color .2s;
+    }
+    .project-link:hover { color: #000; border-color: #000; }
 
-    /* ── Centres d'intérêt ── */
-    .hobbies-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .8rem;
+    /* ── PPP ── */
+    .ppp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .ppp-item {
+      padding: 1.4rem 1.6rem;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      background: #fafafa;
     }
-    .hobby {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: .8rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: .2rem;
-    }
-    .hobby-name {
+    .ppp-item h3 {
+      font-size: .8rem;
       font-weight: 600;
-      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #999;
+      margin-bottom: .6rem;
+    }
+    .ppp-item p {
+      font-size: .92rem;
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── LOISIRS ── */
+    .hobbies-list { display: flex; flex-direction: column; gap: 0; }
+    .hobby-row {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: .9rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .hobby-row:last-child { border-bottom: none; }
+    .hobby-name {
+      font-size: .95rem;
+      font-weight: 500;
+      color: #222;
+      min-width: 150px;
     }
     .hobby-detail {
-      font-family: var(--mono);
-      font-size: .7rem;
-      color: var(--muted);
+      font-size: .85rem;
+      color: #888;
     }
 
-    /* ── Contact ── */
-    #contact {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin: 0;
-      max-width: 100%;
-      padding: 6rem 2rem;
-    }
-    #contact > * { max-width: 900px; margin-left: auto; margin-right: auto; }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* ── CONTACT ── */
+    #contact { padding-bottom: 6rem; }
+    .contact-list { display: flex; flex-direction: column; gap: 1.2rem; margin-top: .5rem; }
+    .contact-row {
+      display: flex;
+      align-items: center;
       gap: 1rem;
-      margin-top: 2.5rem;
+      font-size: .95rem;
     }
-    .contact-item {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.2rem;
-    }
-    .contact-item label {
-      display: block;
-      font-family: var(--mono);
-      font-size: .65rem;
-      color: var(--accent2);
-      letter-spacing: .15em;
+    .contact-label {
+      width: 90px;
+      font-size: .78rem;
+      color: #aaa;
       text-transform: uppercase;
-      margin-bottom: .4rem;
+      letter-spacing: .07em;
+      flex-shrink: 0;
     }
-    .contact-item a, .contact-item span {
-      font-family: var(--mono);
-      font-size: .8rem;
-      color: var(--text);
+    .contact-row a {
+      color: #333;
       text-decoration: none;
-      word-break: break-all;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1px;
+      transition: color .2s, border-color .2s;
     }
-    .contact-item a:hover { color: var(--accent2); }
+    .contact-row a:hover { color: #000; border-color: #000; }
+    .contact-row span { color: #444; }
 
-    /* ── Footer ── */
+    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 2rem;
-      font-family: var(--mono);
-      font-size: .7rem;
-      color: var(--border);
+      font-size: .78rem;
+      color: #bbb;
+      border-top: 1px solid #efefef;
     }
 
-    /* ── Responsive ── */
+    /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       nav { padding: 1rem 1.2rem; }
-      .nav-links { gap: 1rem; }
-      section { padding: 5rem 1.2rem 3rem; }
-      .timeline-item { grid-template-columns: 70px 1fr; }
-      .timeline-item::after { left: 69px; }
+      .nav-links { gap: 1.2rem; }
+      .page { padding: 0 1.2rem; }
+      #hero { padding-top: 7rem; }
+      .hobby-name { min-width: 120px; }
+      .contact-label { width: 70px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║            NAV               ║ -->
-<!-- ╚══════════════════════════════╝ -->
+<!-- NAV -->
 <nav>
-  <span class="nav-logo">// portfolio</span>
+  <a class="nav-name" href="#hero">Christian Sidibe</a>
   <ul class="nav-links">
-    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#formations">Formations</a></li>
     <li><a href="#competences">Compétences</a></li>
     <li><a href="#projets">Projets</a></li>
-    <li><a href="#ppp">Ambitions</a></li>
+    <li><a href="#ambitions">Ambitions</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║            HERO              ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="hero">
-  <p class="hero-eyebrow">Étudiant BUT Informatique — Semestre 2</p>
-  <h1 class="hero-name">
-    Christian<br><span>Sidibe</span>
-  </h1>
-  <p class="hero-tagline">
-    Passionné d'informatique, je développe des solutions et explore de nouveaux langages au fil de mes projets scolaires. Toujours curieux, toujours en train d'apprendre.
-  </p>
-  <div class="hero-photo-wrap">
+<div class="page">
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+
     <!--
-      PHOTO : remplace l'élément ci-dessous par :
-      <img class="hero-photo" src="ta-photo.jpg" alt="Photo de profil" />
+      PHOTO : remplace cet élément par :
+      <img class="hero-photo" src="ta-photo.jpg" alt="Photo de Christian Sidibe" />
     -->
-    <div class="hero-photo-placeholder">Ta<br>photo<br>ici</div>
-    <div class="hero-contacts">
-      <a href="mailto:ton.email@example.com">christian.sidibe@universite-paris-saclay.fr</a>
-      <a href="tel:+33600000000">06 17 47 19 86</a>
-      <a href="https://github.com/tonpseudo" target="_blank">github.com/tonpseudo</a>
+    <div class="hero-photo">Photo<br>ici</div>
+
+    <h1>Bonjour. Je m'appelle<br><em>Christian Sidibe,</em><br>et voici mon portfolio.</h1>
+
+    <p class="hero-intro">
+      Je suis étudiant en première année de BUT Informatique, parcours développement d'applications.
+      Passionné par la programmation, j'aime comprendre comment les technologies fonctionnent
+      et les utiliser pour construire des choses concrètes.
+    </p>
+
+    <p class="hero-story">
+      Mon intérêt pour l'informatique est né bien avant le lycée. Comprendre la logique
+      derrière un programme, résoudre un problème avec du code — c'est ce qui me motive
+      chaque jour et ce que je veux développer tout au long de mes études.
+      <!-- Remplace ce paragraphe par ta propre histoire ! -->
+    </p>
+
+    <div class="hero-links">
+      <a href="mailto:ton.email@example.com">ton.email@example.com</a>
+      <a href="tel:+33600000000">06 00 00 00 00</a>
+      <a href="https://github.com/tonpseudo" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/tonprofil" target="_blank">LinkedIn</a>
     </div>
-  </div>
-  <p class="scroll-hint">↓ &nbsp; défiler</p>
-</section>
 
-<hr class="divider" />
+  </section>
 
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║       PARCOURS SCOLAIRE      ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="parcours">
-  <p class="section-label">01 — Formation</p>
-  <h2>Parcours scolaire<br>&amp; universitaire</h2>
+  <hr class="sep" />
 
-  <div class="timeline">
+  <!-- ══ FORMATIONS ══ -->
+  <section class="section" id="formations">
+    <p class="section-label">Formations</p>
+    <h2>Mon parcours scolaire</h2>
 
-    <div class="timeline-item">
-      <span class="timeline-year">2024 →</span>
-      <div class="timeline-content">
-        <h3>BUT Informatique — Parcours A (développement)</h3>
-        <p>IUT de d'Orsay — Université de Paris Saclay</p>
-        <p>Actuellement en 1ère année (semestre 2)</p>
+    <div class="formation-list">
+
+      <div class="formation-item">
+        <span class="formation-arrow">↓</span>
+        <div class="formation-body">
+          <h3>BUT Informatique — Parcours A</h3>
+          <p class="org">IUT de [Ta Ville] — Université de [Ton Université]</p>
+          <p class="date">2024 → aujourd'hui</p>
+          <p class="details">Développement d'applications — actuellement en 1ère année, semestre 2.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="timeline-item">
-      <span class="timeline-year">2021 → 2024</span>
-      <div class="timeline-content">
-        <h3>Baccalauréat Général</h3>
-        <p>Lycée George Brassens — Evry-courcourronne</p>
-        <p>Spécialités : NSI, Mathématiques, [3ème spécialité]</p>
-        <span class="mention">Mention Bien</span>
-        <!-- Change la mention si besoin : Assez Bien, Bien, Très Bien -->
+      <div class="formation-item">
+        <span class="formation-arrow">↓</span>
+        <div class="formation-body">
+          <h3>Baccalauréat Général</h3>
+          <p class="org">Lycée [Nom du Lycée] — [Ville]</p>
+          <p class="date">2021 → 2024</p>
+          <p class="details">Spécialités : NSI, Mathématiques, [3ème spécialité]</p>
+          <span class="badge">Mention Bien</span>
+        </div>
       </div>
-    </div>
 
-    <div class="timeline-item">
-      <span class="timeline-year">2018 → 2021</span>
-      <div class="timeline-content">
-        <h3>Brevet des Collèges</h3>
-        <p>Collège [Nom du Collège] — [Ville]</p>
-        <span class="mention">Mention Très Bien</span>
+      <div class="formation-item">
+        <span class="formation-arrow">↓</span>
+        <div class="formation-body">
+          <h3>Brevet des Collèges</h3>
+          <p class="org">Collège [Nom du Collège] — [Ville]</p>
+          <p class="date">2018 → 2021</p>
+          <span class="badge">Mention Très Bien</span>
+        </div>
       </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <hr class="sep" />
 
-<hr class="divider" />
+  <!-- ══ COMPÉTENCES ══ -->
+  <section class="section" id="competences">
+    <p class="section-label">Compétences</p>
+    <h2>Ce que je sais faire</h2>
 
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║         COMPÉTENCES          ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="competences">
-  <p class="section-label">02 — Skills</p>
-  <h2>Compétences</h2>
-
-  <div class="skills-grid">
-
-    <div class="skill-card">
+    <div class="skills-section">
       <h3>Langages de programmation</h3>
       <div class="tags">
         <span class="tag">Python</span>
@@ -569,11 +482,10 @@
         <span class="tag">C</span>
         <span class="tag">JavaScript</span>
         <span class="tag">SQL</span>
-        <!-- Ajoute ou supprime selon tes vraies compétences -->
       </div>
     </div>
 
-    <div class="skill-card">
+    <div class="skills-section">
       <h3>Web &amp; Outils</h3>
       <div class="tags">
         <span class="tag">HTML / CSS</span>
@@ -584,7 +496,7 @@
       </div>
     </div>
 
-    <div class="skill-card">
+    <div class="skills-section">
       <h3>Bureautique</h3>
       <div class="tags">
         <span class="tag">Word</span>
@@ -594,193 +506,201 @@
       </div>
     </div>
 
-    <div class="skill-card">
+    <div class="skills-section">
       <h3>Langues</h3>
-      <div class="lang-level">
+      <div class="lang-list">
         <div class="lang-row">
-          <span>🇫🇷 Français</span>
-          <span>Langue maternelle</span>
+          <span class="flag-name">🇫🇷 Français</span>
+          <span class="level">Langue maternelle</span>
         </div>
         <div class="lang-row">
-          <span>🇬🇧 Anglais</span>
-          <span>B2</span>
+          <span class="flag-name">🇬🇧 Anglais</span>
+          <span class="level">B2</span>
         </div>
         <div class="lang-row">
-          <span>🇪🇸 Espagnol</span>
-          <span>A2</span>
+          <span class="flag-name">🇪🇸 Espagnol</span>
+          <span class="level">A2</span>
         </div>
-        <!-- Modifie les niveaux selon le Cadre Européen Commun : A1 A2 B1 B2 C1 C2 -->
       </div>
     </div>
 
-  </div>
-</section>
+  </section>
 
-<hr class="divider" />
+  <hr class="sep" />
 
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║           PROJETS            ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="projets">
-  <p class="section-label">03 — Réalisations</p>
-  <h2>Projets réalisés</h2>
+  <!-- ══ PROJETS ══ -->
+  <section class="section" id="projets">
+    <p class="section-label">Réalisations</p>
+    <h2>Mes projets</h2>
 
-  <div class="projects-grid">
+    <p>
+      Voici quelques-uns des projets sur lesquels j'ai travaillé, dans le cadre
+      de mes études ou de ma curiosité personnelle.
+    </p>
 
-    <!-- ── Projet 1 ── -->
-    <div class="project-card">
-      <span class="project-type">Projet scolaire — S1</span>
-      <h3>Nom de ton projet 1</h3>
-      <div class="tags" style="flex-wrap:wrap; gap:.3rem;">
-        <span class="tag">Python</span>
-        <span class="tag">Linux</span>
+    <div class="project-list">
+
+      <!-- Projet 1 -->
+      <div class="project-item">
+        <p class="project-meta">Projet scolaire — Semestre 1</p>
+        <h3>Nom de ton projet 1</h3>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Linux</span>
+        </div>
+        <p>
+          Décris ici ce que fait le projet, l'objectif pédagogique, et ce que tu as appris.
+          Une ou deux phrases bien rédigées suffisent. Explique ce que tu as développé comme compétences.
+        </p>
+        <!-- Décommente si tu as un repo GitHub :
+        <a class="project-link" href="https://github.com/ton-repo" target="_blank">Voir le code →</a>
+        -->
       </div>
-      <p>
-        Décris ici ce que fait le projet, l'objectif pédagogique, et ce que tu as appris.
-        Une ou deux phrases suffisent.
-      </p>
-      <!-- Si tu as un lien GitHub, décommente la ligne suivante -->
-      <!-- <a class="project-link" href="https://github.com/ton-repo" target="_blank">Voir le code</a> -->
-    </div>
 
-    <!-- ── Projet 2 ── -->
-    <div class="project-card">
-      <span class="project-type">Projet scolaire — S1</span>
-      <h3>Nom de ton projet 2</h3>
-      <div class="tags" style="flex-wrap:wrap; gap:.3rem;">
-        <span class="tag">Java</span>
-        <span class="tag">SQL</span>
-        <span class="tag">Git</span>
+      <!-- Projet 2 -->
+      <div class="project-item">
+        <p class="project-meta">Projet scolaire — Semestre 1</p>
+        <h3>Nom de ton projet 2</h3>
+        <div class="project-tags">
+          <span class="project-tag">Java</span>
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Git</span>
+        </div>
+        <p>
+          Décris ici ce que fait le projet, les technologies utilisées et les compétences mobilisées.
+          Ce projet m'a permis d'apprendre à travailler en équipe et à gérer un dépôt Git.
+        </p>
       </div>
-      <p>
-        Décris ici ce que fait le projet, les technologies utilisées et les compétences mobilisées.
-      </p>
-    </div>
 
-    <!-- ── Projet 3 ── -->
-    <div class="project-card">
-      <span class="project-type">Projet scolaire — S2</span>
-      <h3>Nom de ton projet 3</h3>
-      <div class="tags" style="flex-wrap:wrap; gap:.3rem;">
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">JavaScript</span>
+      <!-- Projet 3 -->
+      <div class="project-item">
+        <p class="project-meta">Projet scolaire — Semestre 2</p>
+        <h3>Nom de ton projet 3</h3>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JavaScript</span>
+        </div>
+        <p>
+          Décris ici ce que tu as développé et les compétences acquises durant ce projet.
+        </p>
       </div>
-      <p>
-        Décris ici ce que fait le projet et ce que tu as développé comme compétences.
-      </p>
+
+      <!-- Duplique un bloc project-item pour ajouter d'autres projets -->
+
     </div>
+  </section>
 
-    <!-- Duplique un bloc <div class="project-card">…</div> pour ajouter d'autres projets -->
+  <hr class="sep" />
 
-  </div>
-</section>
+  <!-- ══ AMBITIONS ══ -->
+  <section class="section" id="ambitions">
+    <p class="section-label">Vision</p>
+    <h2>Mon projet professionnel</h2>
 
-<hr class="divider" />
+    <p>
+      Voici comment je vois mon avenir dans le domaine de l'informatique,
+      à court, moyen et long terme.
+    </p>
 
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║     PROJET PERSO / PROFESSIONNEL ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="ppp">
-  <p class="section-label">04 — Vision</p>
-  <h2>Projet personnel<br>&amp; professionnel</h2>
+    <div class="ppp-list">
 
-  <div class="ppp-grid">
+      <div class="ppp-item">
+        <h3>Court terme</h3>
+        <p>
+          Valider mon BUT Informatique, progresser en développement web et back-end,
+          et décrocher un stage valorisant d'ici la fin du semestre 4.
+        </p>
+      </div>
 
-    <div class="ppp-card">
-      <h3>Court terme</h3>
-      <p>
-        Valider mon BUT Informatique, progresser en développement web et back-end, décrocher un stage valorisant d'ici la fin du semestre 4.
-      </p>
+      <div class="ppp-item">
+        <h3>Moyen terme</h3>
+        <p>
+          Intégrer un Master en Génie Logiciel ou une école d'ingénieurs après le BUT,
+          ou partir en alternance pour acquérir de l'expérience professionnelle.
+        </p>
+      </div>
+
+      <div class="ppp-item">
+        <h3>Long terme</h3>
+        <p>
+          Devenir développeur full-stack dans une entreprise innovante,
+          ou créer ma propre activité dans le domaine numérique.
+        </p>
+      </div>
+
     </div>
+  </section>
 
-    <div class="ppp-card">
-      <h3>Moyen terme</h3>
-      <p>
-        Intégrer un Master en Génie Logiciel ou une école d'ingénieurs après le BUT, ou partir en alternance pour acquérir de l'expérience professionnelle.
-      </p>
+  <hr class="sep" />
+
+  <!-- ══ CENTRES D'INTÉRÊT ══ -->
+  <section class="section" id="loisirs">
+    <p class="section-label">Qui je suis</p>
+    <h2>Centres d'intérêt</h2>
+
+    <div class="hobbies-list">
+
+      <div class="hobby-row">
+        <span class="hobby-name">🎮 Jeux vidéo</span>
+        <span class="hobby-detail">RPG &amp; stratégie — ~10h/semaine</span>
+      </div>
+
+      <div class="hobby-row">
+        <span class="hobby-name">📚 Lecture</span>
+        <span class="hobby-detail">Science-fiction &amp; thrillers — 1 à 2 livres par mois</span>
+      </div>
+
+      <div class="hobby-row">
+        <span class="hobby-name">🎵 Musique</span>
+        <span class="hobby-detail">Guitare acoustique — pratique depuis 3 ans, niveau amateur</span>
+      </div>
+
+      <div class="hobby-row">
+        <span class="hobby-name">⚽ Sport</span>
+        <span class="hobby-detail">Football en club amateur — 2 entraînements par semaine</span>
+      </div>
+
+      <!-- Remplace par tes vraies passions — sois précis : type, niveau, fréquence -->
+
     </div>
+  </section>
 
-    <div class="ppp-card">
-      <h3>Long terme</h3>
-      <p>
-        Devenir développeur full-stack dans une entreprise innovante, ou pourquoi pas créer ma propre activité dans le domaine numérique.
-      </p>
+  <hr class="sep" />
+
+  <!-- ══ CONTACT ══ -->
+  <section class="section" id="contact">
+    <p class="section-label">Me contacter</p>
+    <h2>Gardons contact</h2>
+
+    <p>Vous souhaitez me contacter ? Voici mes informations.</p>
+
+    <div class="contact-list">
+
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <a href="mailto:ton.email@example.com">ton.email@example.com</a>
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-label">Téléphone</span>
+        <span>06 00 00 00 00</span>
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-label">GitHub</span>
+        <a href="https://github.com/tonpseudo" target="_blank">github.com/tonpseudo</a>
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-label">LinkedIn</span>
+        <a href="https://linkedin.com/in/tonprofil" target="_blank">linkedin.com/in/tonprofil</a>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-<hr class="divider" />
-
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║     CENTRES D'INTÉRÊT        ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="hobbies">
-  <p class="section-label">05 — Qui je suis</p>
-  <h2>Centres d'intérêt</h2>
-
-  <div class="hobbies-list">
-
-    <div class="hobby">
-      <span class="hobby-name">🎮 Jeux vidéo</span>
-      <span class="hobby-detail">RPG &amp; stratégie — niveau intermédiaire, ~10h/semaine</span>
-    </div>
-
-    <div class="hobby">
-      <span class="hobby-name">📚 Lecture</span>
-      <span class="hobby-detail">Science-fiction &amp; thrillers — 1 à 2 livres par mois</span>
-    </div>
-
-    <div class="hobby">
-      <span class="hobby-name">🎵 Musique</span>
-      <span class="hobby-detail">Guitare acoustique — pratique depuis 3 ans, niveau amateur</span>
-    </div>
-
-    <div class="hobby">
-      <span class="hobby-name">⚽ Sport</span>
-      <span class="hobby-detail">Football en club amateur — 2 entraînements par semaine</span>
-    </div>
-
-    <!-- Remplace ou ajoute tes vraies passions.
-         Sois précis : type, niveau, fréquence — c'est ce que le barème demande ! -->
-
-  </div>
-</section>
-
-<hr class="divider" />
-
-<!-- ╔══════════════════════════════╗ -->
-<!-- ║           CONTACT            ║ -->
-<!-- ╚══════════════════════════════╝ -->
-<section id="contact">
-  <p class="section-label">06 — Me contacter</p>
-  <h2>Gardons contact</h2>
-
-  <div class="contact-grid">
-
-    <div class="contact-item">
-      <label>Email</label>
-      <a href="mailto:ton.email@example.com">ton.email@example.com</a>
-    </div>
-
-    <div class="contact-item">
-      <label>Téléphone</label>
-      <span>06 00 00 00 00</span>
-    </div>
-
-    <div class="contact-item">
-      <label>GitHub</label>
-      <a href="https://github.com/tonpseudo" target="_blank">github.com/tonpseudo</a>
-    </div>
-
-    <div class="contact-item">
-      <label>LinkedIn</label>
-      <a href="https://linkedin.com/in/tonprofil" target="_blank">linkedin.com/in/tonprofil</a>
-    </div>
-
-  </div>
-</section>
+</div><!-- /page -->
 
 <footer>
   © 2025 Christian Sidibe — Portfolio BUT Informatique
