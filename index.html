@@ -1,710 +1,582 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Christian Sidibe | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #1a1a1a;
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.1rem 3.5rem;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e8e8e8;
-    }
-    .nav-name {
-      font-family: 'Lora', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      text-decoration: none;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2.2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: .85rem;
-      color: #666;
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: #1a1a1a; }
-
-    /* ── LAYOUT ── */
-    .page {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ── HERO ── */
-    #hero {
-      padding-top: 10rem;
-      padding-bottom: 5rem;
-    }
-    #hero h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      color: #111;
-    }
-    #hero h1 em {
-      font-style: italic;
-      color: #444;
-    }
-    .hero-intro {
-      font-size: 1.05rem;
-      color: #444;
-      max-width: 580px;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    .hero-story {
-      font-size: .95rem;
-      color: #666;
-      max-width: 580px;
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-    }
-    .hero-photo {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #e0e0e0;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .7rem;
-      color: #aaa;
-      text-align: center;
-      margin-bottom: 2rem;
-      overflow: hidden;
-    }
-    .hero-links {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .hero-links a {
-      font-size: .9rem;
-      color: #333;
-      text-decoration: none;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1px;
-      transition: border-color .2s, color .2s;
-    }
-    .hero-links a:hover { color: #000; border-color: #000; }
-
-    /* ── SEPARATEUR ── */
-    .sep {
-      border: none;
-      border-top: 1px solid #e8e8e8;
-      margin: 0;
-    }
-
-    /* ── SECTIONS ── */
-    .section {
-      padding: 4.5rem 0;
-    }
-    .section-label {
-      font-size: .75rem;
-      color: #999;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-    }
-    .section h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 600;
-      margin-bottom: 1.8rem;
-      color: #111;
-    }
-    .section p {
-      font-size: .95rem;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-
-    /* ── FORMATIONS ── */
-    .formation-list { display: flex; flex-direction: column; gap: 0; }
-    .formation-item {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 0 1.2rem;
-      padding: 1.6rem 0;
-      border-bottom: 1px solid #f0f0f0;
-      position: relative;
-    }
-    .formation-item:last-child { border-bottom: none; }
-    .formation-arrow {
-      color: #bbb;
-      font-size: 1.1rem;
-      padding-top: .1rem;
-      text-align: center;
-    }
-    .formation-body h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #111;
-      margin-bottom: .25rem;
-    }
-    .formation-body .org {
-      font-size: .88rem;
-      color: #666;
-      margin-bottom: .2rem;
-    }
-    .formation-body .date {
-      font-size: .8rem;
-      color: #aaa;
-      margin-bottom: .4rem;
-    }
-    .formation-body .details {
-      font-size: .85rem;
-      color: #777;
-    }
-    .badge {
-      display: inline-block;
-      font-size: .72rem;
-      padding: .15rem .6rem;
-      border-radius: 20px;
-      border: 1px solid #d5d5d5;
-      color: #555;
-      margin-top: .4rem;
-    }
-
-    /* ── COMPÉTENCES ── */
-    .skills-section { margin-bottom: 2rem; }
-    .skills-section h3 {
-      font-size: .8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: #888;
-      margin-bottom: .8rem;
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
-    .tag {
-      font-size: .82rem;
-      padding: .3rem .8rem;
-      border-radius: 20px;
-      border: 1px solid #e0e0e0;
-      color: #444;
-      background: #fafafa;
-    }
-
-    .lang-list { display: flex; flex-direction: column; gap: .7rem; }
-    .lang-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: .9rem;
-      padding-bottom: .7rem;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .lang-row:last-child { border-bottom: none; }
-    .lang-row .flag-name { color: #333; }
-    .lang-row .level {
-      font-size: .78rem;
-      color: #999;
-      border: 1px solid #e0e0e0;
-      padding: .1rem .6rem;
-      border-radius: 20px;
-    }
-
-    /* ── PROJETS ── */
-    .project-list { display: flex; flex-direction: column; gap: 0; }
-    .project-item {
-      padding: 2rem 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .project-item:last-child { border-bottom: none; }
-    .project-meta {
-      font-size: .75rem;
-      color: #aaa;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      margin-bottom: .5rem;
-    }
-    .project-item h3 {
-      font-family: 'Lora', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #111;
-      margin-bottom: .6rem;
-    }
-    .project-item p {
-      font-size: .9rem;
-      color: #666;
-      line-height: 1.75;
-      margin-bottom: .8rem;
-    }
-    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .8rem; }
-    .project-tag {
-      font-size: .75rem;
-      padding: .2rem .65rem;
-      border-radius: 20px;
-      border: 1px solid #e0e0e0;
-      color: #777;
-      background: #fafafa;
-    }
-    .project-link {
-      font-size: .85rem;
-      color: #333;
-      text-decoration: none;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1px;
-      transition: color .2s, border-color .2s;
-    }
-    .project-link:hover { color: #000; border-color: #000; }
-
-    /* ── PPP ── */
-    .ppp-list { display: flex; flex-direction: column; gap: 1.5rem; }
-    .ppp-item {
-      padding: 1.4rem 1.6rem;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      background: #fafafa;
-    }
-    .ppp-item h3 {
-      font-size: .8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: #999;
-      margin-bottom: .6rem;
-    }
-    .ppp-item p {
-      font-size: .92rem;
-      color: #555;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    /* ── LOISIRS ── */
-    .hobbies-list { display: flex; flex-direction: column; gap: 0; }
-    .hobby-row {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-      padding: .9rem 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .hobby-row:last-child { border-bottom: none; }
-    .hobby-name {
-      font-size: .95rem;
-      font-weight: 500;
-      color: #222;
-      min-width: 150px;
-    }
-    .hobby-detail {
-      font-size: .85rem;
-      color: #888;
-    }
-
-    /* ── CONTACT ── */
-    #contact { padding-bottom: 6rem; }
-    .contact-list { display: flex; flex-direction: column; gap: 1.2rem; margin-top: .5rem; }
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: .95rem;
-    }
-    .contact-label {
-      width: 90px;
-      font-size: .78rem;
-      color: #aaa;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      flex-shrink: 0;
-    }
-    .contact-row a {
-      color: #333;
-      text-decoration: none;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 1px;
-      transition: color .2s, border-color .2s;
-    }
-    .contact-row a:hover { color: #000; border-color: #000; }
-    .contact-row span { color: #444; }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: .78rem;
-      color: #bbb;
-      border-top: 1px solid #efefef;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      nav { padding: 1rem 1.2rem; }
-      .nav-links { gap: 1.2rem; }
-      .page { padding: 0 1.2rem; }
-      #hero { padding-top: 7rem; }
-      .hobby-name { min-width: 120px; }
-      .contact-label { width: 70px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="resources/page_favicon.ico" type="image/x-icon">
+    <title>Pausé-Chapuis Lucas | Portfolio</title>
 </head>
+
 <body>
-
-<!-- NAV -->
-<nav>
-  <a class="nav-name" href="#hero">Christian Sidibe</a>
-  <ul class="nav-links">
-    <li><a href="#formations">Formations</a></li>
-    <li><a href="#competences">Compétences</a></li>
-    <li><a href="#projets">Projets</a></li>
-    <li><a href="#ambitions">Ambitions</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<div class="page">
-
-  <!-- ══ HERO ══ -->
-  <section id="hero">
-
-    <!--
-      PHOTO : remplace cet élément par :
-      <img class="hero-photo" src="ta-photo.jpg" alt="Photo de Christian Sidibe" />
-    -->
-    <div class="hero-photo">Photo<br>ici</div>
-
-    <h1>Bonjour. Je m'appelle<br><em>Christian Sidibe,</em><br>et voici mon portfolio.</h1>
-
-    <p class="hero-intro">
-      Je suis étudiant en première année de BUT Informatique, parcours développement d'applications.
-      Passionné par la programmation, j'aime comprendre comment les technologies fonctionnent
-      et les utiliser pour construire des choses concrètes.
-    </p>
-
-    <p class="hero-story">
-      Mon intérêt pour l'informatique est né bien avant le lycée. Comprendre la logique
-      derrière un programme, résoudre un problème avec du code — c'est ce qui me motive
-      chaque jour et ce que je veux développer tout au long de mes études.
-      <!-- Remplace ce paragraphe par ta propre histoire ! -->
-    </p>
-
-    <div class="hero-links">
-      <a href="mailto:ton.email@example.com">ton.email@example.com</a>
-      <a href="tel:+33600000000">06 00 00 00 00</a>
-      <a href="https://github.com/tonpseudo" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/tonprofil" target="_blank">LinkedIn</a>
-    </div>
-
-  </section>
-
-  <hr class="sep" />
-
-  <!-- ══ FORMATIONS ══ -->
-  <section class="section" id="formations">
-    <p class="section-label">Formations</p>
-    <h2>Mon parcours scolaire</h2>
-
-    <div class="formation-list">
-
-      <div class="formation-item">
-        <span class="formation-arrow">↓</span>
-        <div class="formation-body">
-          <h3>BUT Informatique — Parcours A</h3>
-          <p class="org">IUT de [Ta Ville] — Université de [Ton Université]</p>
-          <p class="date">2024 → aujourd'hui</p>
-          <p class="details">Développement d'applications — actuellement en 1ère année, semestre 2.</p>
+    <div class="header">
+        <div class="burger" onclick="document.querySelector('.inner-header').classList.toggle('active')">
+            <i class="fa-solid fa-bars"></i>
         </div>
-      </div>
 
-      <div class="formation-item">
-        <span class="formation-arrow">↓</span>
-        <div class="formation-body">
-          <h3>Baccalauréat Général</h3>
-          <p class="org">Lycée [Nom du Lycée] — [Ville]</p>
-          <p class="date">2021 → 2024</p>
-          <p class="details">Spécialités : NSI, Mathématiques, [3ème spécialité]</p>
-          <span class="badge">Mention Bien</span>
+        <div class="inner-header">
+            <h2><a href="#degree" class="nav-link"><i class="fa-solid fa-user-graduate"></i> Formations</a></h2>
+            <h2><a href="#skills" class="nav-link"><i class="fa-solid fa-star"></i> Compétences</a></h2>
+            <h2><a href="#projects" class="nav-link"><i class="fa-solid fa-folder-open"></i> Mes projets</a></h2>
+            <h2><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contactez-moi</a></h2>
         </div>
-      </div>
+    </div>
 
-      <div class="formation-item">
-        <span class="formation-arrow">↓</span>
-        <div class="formation-body">
-          <h3>Brevet des Collèges</h3>
-          <p class="org">Collège [Nom du Collège] — [Ville]</p>
-          <p class="date">2018 → 2021</p>
-          <span class="badge">Mention Très Bien</span>
+    <section class="main-big-title-section">
+        <div class="main-big-title-section-inner">
+            <h1 id="main-big-title">Bonjour. Je m'appelle Lucas,</br>et vous voici sur mon portfolio !</h1>
         </div>
-      </div>
+    </section>
 
-    </div>
-  </section>
-
-  <hr class="sep" />
-
-  <!-- ══ COMPÉTENCES ══ -->
-  <section class="section" id="competences">
-    <p class="section-label">Compétences</p>
-    <h2>Ce que je sais faire</h2>
-
-    <div class="skills-section">
-      <h3>Langages de programmation</h3>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Java</span>
-        <span class="tag">C</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">SQL</span>
-      </div>
+    <div class="container center-container">
+        <section class="section-block" style="width: 70%;">
+            <h2>Ne grillons pas les étapes...</h2>
+            <h3>et permettez-moi tout d'abord de me présenter.</h3>
+            <p>Je m'appelle Lucas Pausé-Chapuis, j'ai 19 ans et je suis étudiant en seconde année de BUT Informatique à l'<a href="https://www.iut-orsay.universite-paris-saclay.fr" target=”_blank”>IUT d'Orsay</a>. J'habite en Essonne.</p>
+            <p><i class="fa-solid fa-desktop"></i> Passionné par l'informatique depuis mes onze ans, j'ai toujours été fasciné par la manière dont les technologies peuvent transformer notre quotidien.</p>
+            <p><i class="fa-solid fa-pencil"></i> Avide de créativité et d'expérimentation, j'ai conçu de nombreux projets pour me perfectionner dans ce domaine.</p>
+            <p><i class="fa-solid fa-circle-question"></i> Aujourd'hui, je suis à la recherche d'un stage d'une durée de trois mois dans le domaine du développement.</p>
+        </section>
     </div>
 
-    <div class="skills-section">
-      <h3>Web &amp; Outils</h3>
-      <div class="tags">
-        <span class="tag">HTML / CSS</span>
-        <span class="tag">Git / GitHub</span>
-        <span class="tag">VS Code</span>
-        <span class="tag">Linux (Bash)</span>
-        <span class="tag">MySQL</span>
-      </div>
+    <div class="container right-container">
+        <section class="section-block">
+            <h2>Comment cela a commencé ?</h2>
+            <h3></h3>
+            <p>Il y a de nombreuses années, quand j'étais plus jeune, je découvrais <a href="https://scratch.mit.edu">Scratch</a>, un logiciel / site web conçu pour créer ses propres jeux !</p>
+            <p>Très rapidement, alors que j'étais déjà curieux de comprendre le fonctionnement des programmes informatiques, j'ai pris goût à l'algorithmique. Aujourd'hui, je souhaite faire de cette passion mon futur métier.</p>
+        </section>
+
+        <section>
+            <img src="images/scratch.png" alt="Image Scratch" width="600">
+        </section>
     </div>
 
-    <div class="skills-section">
-      <h3>Bureautique</h3>
-      <div class="tags">
-        <span class="tag">Word</span>
-        <span class="tag">Excel</span>
-        <span class="tag">PowerPoint</span>
-        <span class="tag">LibreOffice</span>
-      </div>
+
+    <hr class="animated-hr center-aligned" style="width: 90%;">
+
+
+    <div id="degree" class="degree-section">
+        <section class="degree-separator">
+            <section class="title-block">
+                <h2>Formations</h2>
+                <h3></h3>
+            </section>
+
+            <section class="timeline-section">
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="content-block">
+                            <img src="images/universite.jpg" alt="Logo BUT Informatique">
+                            <div class="timeline-degree-info">
+                                <h3 class="timeline-degree-header">BUT Informatique</h3>
+                                <p><b>IUT d'Orsay – 2024 à aujourd’hui</b></p>
+                                <p>Parcours A : développement d'applications</p>
+                            </div>
+                        </div>
+                        <div class="arrow">&#x2193;</div> <!-- Flèche vers le bas -->
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="content-block">
+                            <img src="images/logo-lycee.png" alt="Logo Lycée Marguerite Yourcenar">
+                            <div class="timeline-degree-info">
+                                <h3>Baccalauréat Général : Mention Bien</h3>
+                                <p><b>Lycée Marguerite Yourcenar – 2021 à 2024</b></p>
+                                <p>Spécialités : NSI, Mathématiques, Physique-Chimie</p>
+                            </div>
+                        </div>
+                        <div class="arrow">&#x2193;</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="content-block">
+                            <img src="images/logo-college.jpg" alt="Logo Lycée Marguerite Yourcenar">
+                            <div class="timeline-degree-info">
+                                <h3>Brevet des collèges : Mention Très bien</h3>
+                                <p><b>Collège Les Dînes Chiens – 2017 à 2021</b></p>
+                            </div>
+                        </div>
+                    <!-- Dernier bloc sans flèche -->
+                    </div>
+
+                </div>
+            </section>
+        </section>
+        <section class="degree-separator">
+            <section class="title-block">
+                <h2>Expériences professionnelles</h2>
+                <h3></h3>
+            </section>
+
+            <section class="timeline-section">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="content-block">
+                            <img src="images/logo-razel-bec.jpg" alt="Logo Lycée Marguerite Yourcenar">
+                            <div class="timeline-degree-info">
+                                <h3>Stage d'observation chez Razel-Bec</h3>
+                                <p><b>Razel-Bec | Groupe Fayat – 2021</b></p>
+                                <ul>
+                                    <li>• Secteur informatique</li>
+                                    <li>• Génie civil</li>
+                                    <li>• Laboratoire</li>
+                                    <li>• Coordination d'équipe</li>
+                                </ul>
+                                
+                                <hr class="center-aligned" style="width: 100%;">
+                                <p><b>Compétences développées</b></p>
+                                <ul>
+                                    <li>• Premier aperçu du monde professionnel</li>
+                                    <li>• Observation des métiers de l'informatique et du génie civil</li>
+                                    <li>• Cohésion entre les nombreux secteurs d'une entreprise</li>
+                                    <li>• Apprentissage de la coordination d'équipe</li>
+                                    <li>• Contribution à la configuration ou à la réparation d'appareils informatiques</li>
+                                </ul>
+                            </div>
+                        </div>
+                    <!-- Dernier bloc sans flèche -->
+                    </div>
+
+                </div>
+            </section>
+        </section>
     </div>
 
-    <div class="skills-section">
-      <h3>Langues</h3>
-      <div class="lang-list">
-        <div class="lang-row">
-          <span class="flag-name">🇫🇷 Français</span>
-          <span class="level">Langue maternelle</span>
+
+    <hr class="animated-hr center-aligned" style="width: 90%;">
+
+
+    <div id="skills" class="skills-section">
+        <section class="title-block">
+            <h2>Mes compétences</h2>
+            <h3></h3>
+        </section>
+
+        <div class="skills-container">
+            <div class="skills-block hard-skills">
+                <h3><i class="fa-solid fa-power-off"></i> Hard Skills</h3>
+                <ul>
+                    <li>Python, C++, Java, Javascript</li>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>GitHub, GitLab</li>
+                    <li>SQL, Systèmes de gestion de bases de données</li>
+                    <li>Outils de développement : VS Code, GitBash, Code::Blocks, Eclipse</li>
+                    <li>API, Frameworks : Godot, Unreal Engine</li>
+                    <li>Pack Office</li>
+                </ul>
+            </div>
+
+            <div class="skills-block soft-skills">
+                <h3><i class="fa-solid fa-certificate"></i> Soft Skills</h3>
+                <ul>
+                    <li>Investissement</li>
+                    <li>Créativité</li>
+                    <li>Polyvalence</li>
+                    <li>Réactivité</li>
+                    <li>À l'écoute</li>
+                    <li>Esprit critique</li>
+                    <li>Persévérance</li>
+                    <li>Coopération, travail en équipe</li>
+                </ul>
+            </div>
         </div>
-        <div class="lang-row">
-          <span class="flag-name">🇬🇧 Anglais</span>
-          <span class="level">B2</span>
+
+        <div class="skills-container">
+            <div class="skills-block languages">
+                <h3><i class="fa-solid fa-language"></i> Langues</h3>
+                <ul>
+                    <li>Français : Langue maternelle</li>
+                    <li>Anglais : Niveau C1</li>
+                    <li>Espagnol : Niveau B1</li>
+                </ul>
+            </div>
+
+            <div class="skills-block hobbies">
+                <h3><i class="fa-solid fa-hourglass"></i> Centres d'intérêt</h3>
+                <ul>
+                    <li>Développement</li>
+                    <li>Jeu vidéo</li>
+                    <li>Dessin</li>
+                    <li>Musique</li>
+                    <li>Animation et modélisation</li>
+                    <li>Astronomie</li>
+                </ul>
+            </div>
         </div>
-        <div class="lang-row">
-          <span class="flag-name">🇪🇸 Espagnol</span>
-          <span class="level">A2</span>
-        </div>
-      </div>
     </div>
 
-  </section>
+    <hr class="animated-hr center-aligned" style="width: 90%;">
 
-  <hr class="sep" />
+    <div id="projects" class="container left-container">
+        <section class="title-block">
+            <h2>Mes projets</h2>
+            <h3></h3>
+            <p>Vous trouverez ici quelques-uns des projets sur lesquels j'ai travaillé.</p>
+        </section>
+    </div>
 
-  <!-- ══ PROJETS ══ -->
-  <section class="section" id="projets">
-    <p class="section-label">Réalisations</p>
-    <h2>Mes projets</h2>
+    <section class="project-section">
+    <h3 class="project-container-title"><i class="fa-solid fa-code"></i> Projets informatiques</h3>
+    <div class="project-container">
 
-    <p>
-      Voici quelques-uns des projets sur lesquels j'ai travaillé, dans le cadre
-      de mes études ou de ma curiosité personnelle.
-    </p>
-
-    <div class="project-list">
-
-      <!-- Projet 1 -->
-      <div class="project-item">
-        <p class="project-meta">Projet scolaire — Semestre 1</p>
-        <h3>Nom de ton projet 1</h3>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">Linux</span>
+        <!-- Carte FROSTHORN -->
+        <div class="project-card">
+            <img src="images/projet-frosthorn.png" alt="FrostHorn">
+            <div class="tag-list">
+                <span class="tag red-tag">En cours !</span>
+                <span class="tag blue-tag">Jeu</span>
+                <span class="tag blue-tag">Projet personnel</span>
+                <span class="tag purple-tag">Godot</span>
+                <span class="tag purple-tag">GDScript</span>
+                <span class="tag purple-tag">C++</span>
+                <span class="tag purple-tag">Node JS</span>
+            </div>
+            <h3>FrostHorn</h3>
+            <p>Un jeu d'aventure post-apocalyptique en 2D au cœur d'une histoire dans laquelle le joueur doit explorer et innover pour obtenir la Corne d'Abondance. Créé avec le moteur de jeu Godot.</p>
+            <a onclick="openModal('modal-projet1')">Voir plus</a>
         </div>
-        <p>
-          Décris ici ce que fait le projet, l'objectif pédagogique, et ce que tu as appris.
-          Une ou deux phrases bien rédigées suffisent. Explique ce que tu as développé comme compétences.
-        </p>
-        <!-- Décommente si tu as un repo GitHub :
-        <a class="project-link" href="https://github.com/ton-repo" target="_blank">Voir le code →</a>
-        -->
-      </div>
 
-      <!-- Projet 2 -->
-      <div class="project-item">
-        <p class="project-meta">Projet scolaire — Semestre 1</p>
-        <h3>Nom de ton projet 2</h3>
-        <div class="project-tags">
-          <span class="project-tag">Java</span>
-          <span class="project-tag">SQL</span>
-          <span class="project-tag">Git</span>
+        <!-- Carte YOUTUBE LOCAL DOWNLOADER -->
+        <div class="project-card">
+            <img src="images/projet-yld.png" alt="YouTube Local Downloader">
+            <div class="tag-list">
+                <span class="tag blue-tag">Projet personnel</span>
+                <span class="tag blue-tag">Application</span>
+                <span class="tag blue-tag">Site intranet</span>
+                <span class="tag purple-tag">Python</span>
+                <span class="tag purple-tag">HTML</span>
+                <span class="tag purple-tag">Javascript</span>
+                <span class="tag purple-tag">API</span>
+            </div>
+            <h3>YouTube Local Downloader</h3>
+            <p>Une application permettant de télécharger des contenus sur YouTube en local, et son site intranet.</p>
+            <a onclick="openModal('modal-projet2')">Voir plus</a>
         </div>
-        <p>
-          Décris ici ce que fait le projet, les technologies utilisées et les compétences mobilisées.
-          Ce projet m'a permis d'apprendre à travailler en équipe et à gérer un dépôt Git.
-        </p>
-      </div>
-
-      <!-- Projet 3 -->
-      <div class="project-item">
-        <p class="project-meta">Projet scolaire — Semestre 2</p>
-        <h3>Nom de ton projet 3</h3>
-        <div class="project-tags">
-          <span class="project-tag">HTML</span>
-          <span class="project-tag">CSS</span>
-          <span class="project-tag">JavaScript</span>
+        
+        <!-- Carte BOT DISCORD -->
+        <div class="project-card">
+            <img src="images/projet-wisebot-miniature.png" alt="Bot Discord">
+            
+            <div class="tag-list">
+                <span class="tag blue-tag">Projet personnel</span>
+                <span class="tag blue-tag">Application</span>
+                <span class="tag purple-tag">SQLite (Bases de données)</span>
+                <span class="tag purple-tag">Python</span>
+                <span class="tag purple-tag">Commandes asynchrones</span>
+                <span class="tag purple-tag">API</span>
+            </div>
+            <h3>WiseBot : Bot Discord de divertissement</h3>
+            <p>Un "bot" de divertissement interactif pour Discord, disposant d'une panoplie de commandes amusantes et de mini jeux.</p>
+            <a onclick="openModal('modal-projet3')">Voir plus</a>
         </div>
-        <p>
-          Décris ici ce que tu as développé et les compétences acquises durant ce projet.
-        </p>
-      </div>
 
-      <!-- Duplique un bloc project-item pour ajouter d'autres projets -->
+        <!-- Carte S102 -->
+        <div class="project-card">
+            <img src="images/projet-s102.gif" alt="Jeu en C++">
+            
+            <div class="tag-list">
+                <span class="tag orange-tag">Projet scolaire</span>
+                <span class="tag blue-tag">Qualité de développement</span>
+                <span class="tag purple-tag">C++</span>
+            </div>
+            <h3>Mini jeu vidéo en C++</h3>
+            <p>Un mini jeu vidéo en top-down codé en C++ dans le cadre d'un projet scolaire.</p>
+            <a onclick="openModal('modal-projet4')">Voir plus</a>
+        </div>
 
-    </div>
-  </section>
-
-  <hr class="sep" />
-
-  <!-- ══ AMBITIONS ══ -->
-  <section class="section" id="ambitions">
-    <p class="section-label">Vision</p>
-    <h2>Mon projet professionnel</h2>
-
-    <p>
-      Voici comment je vois mon avenir dans le domaine de l'informatique,
-      à court, moyen et long terme.
-    </p>
-
-    <div class="ppp-list">
-
-      <div class="ppp-item">
-        <h3>Court terme</h3>
-        <p>
-          Valider mon BUT Informatique, progresser en développement web et back-end,
-          et décrocher un stage valorisant d'ici la fin du semestre 4.
-        </p>
-      </div>
-
-      <div class="ppp-item">
-        <h3>Moyen terme</h3>
-        <p>
-          Intégrer un Master en Génie Logiciel ou une école d'ingénieurs après le BUT,
-          ou partir en alternance pour acquérir de l'expérience professionnelle.
-        </p>
-      </div>
-
-      <div class="ppp-item">
-        <h3>Long terme</h3>
-        <p>
-          Devenir développeur full-stack dans une entreprise innovante,
-          ou créer ma propre activité dans le domaine numérique.
-        </p>
-      </div>
+        <!-- Carte CodeBreakers -->
+        <div class="project-card">
+            <img src="images/projet-code-breakers.png" alt="Code Breakers">
+            
+            <div class="tag-list">
+                <span class="tag orange-tag">Projet scolaire</span>
+                <span class="tag blue-tag">Mini jeu</span>
+                <span class="tag blue-tag">Jeu narratif</span>
+                <span class="tag purple-tag">Python</span>
+                <span class="tag purple-tag">Apprentissage de la POO</span>
+            </div>
+            <h3>Code Breakers : mini jeu en Python</h3>
+            <p>Un mini jeu vidéo narratif en top-down créé en classe de Terminale en Python, qui m'a permis d'apprendre la Programmation Orientée Objet.</p>
+            <a onclick="openModal('modal-projet5')">Voir plus</a>
+        </div>
 
     </div>
-  </section>
 
-  <hr class="sep" />
-
-  <!-- ══ CENTRES D'INTÉRÊT ══ -->
-  <section class="section" id="loisirs">
-    <p class="section-label">Qui je suis</p>
-    <h2>Centres d'intérêt</h2>
-
-    <div class="hobbies-list">
-
-      <div class="hobby-row">
-        <span class="hobby-name">🎮 Jeux vidéo</span>
-        <span class="hobby-detail">RPG &amp; stratégie — ~10h/semaine</span>
-      </div>
-
-      <div class="hobby-row">
-        <span class="hobby-name">📚 Lecture</span>
-        <span class="hobby-detail">Science-fiction &amp; thrillers — 1 à 2 livres par mois</span>
-      </div>
-
-      <div class="hobby-row">
-        <span class="hobby-name">🎵 Musique</span>
-        <span class="hobby-detail">Guitare acoustique — pratique depuis 3 ans, niveau amateur</span>
-      </div>
-
-      <div class="hobby-row">
-        <span class="hobby-name">⚽ Sport</span>
-        <span class="hobby-detail">Football en club amateur — 2 entraînements par semaine</span>
-      </div>
-
-      <!-- Remplace par tes vraies passions — sois précis : type, niveau, fréquence -->
+    <h3 class="project-container-title"><i class="fa-solid fa-code"></i> Autres projets</h3>
+    <div class="project-container">
+        <!-- Carte BEST-OF -->
+        <div class="project-card">
+            <img src="images/best-of.png" alt="Le Best-of">
+            <div class="tag-list">
+                <span class="tag blue-tag">Projet personnel</span>
+                <span class="tag blue-tag">Original</span>
+                <span class="tag blue-tag">Artistique</span>
+            </div>
+            <h3>Le Best-of</h3>
+            <p>Un défi pour le moins original que je me fixe chaque année, qui consiste à créer une vidéo de plus d'une heure compilant les moments mémorables enregistrés avec mon entourage.</p>
+            <a onclick="openModal('modal-projet6')">Voir plus</a>
+        </div>
 
     </div>
-  </section>
 
-  <hr class="sep" />
 
-  <!-- ══ CONTACT ══ -->
-  <section class="section" id="contact">
-    <p class="section-label">Me contacter</p>
-    <h2>Gardons contact</h2>
+    </section>
 
-    <p>Vous souhaitez me contacter ? Voici mes informations.</p>
 
-    <div class="contact-list">
-
-      <div class="contact-row">
-        <span class="contact-label">Email</span>
-        <a href="mailto:ton.email@example.com">ton.email@example.com</a>
-      </div>
-
-      <div class="contact-row">
-        <span class="contact-label">Téléphone</span>
-        <span>06 00 00 00 00</span>
-      </div>
-
-      <div class="contact-row">
-        <span class="contact-label">GitHub</span>
-        <a href="https://github.com/tonpseudo" target="_blank">github.com/tonpseudo</a>
-      </div>
-
-      <div class="contact-row">
-        <span class="contact-label">LinkedIn</span>
-        <a href="https://linkedin.com/in/tonprofil" target="_blank">linkedin.com/in/tonprofil</a>
-      </div>
-
+    <!-- Modals pour les projets -->
+    
+    <!-- Projet FROSTHORN -->
+    <div class="modal" id="modal-projet1">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-projet1')">&times;</span>
+            <h2>FrostHorn</h2>
+            <h3>Le projet de jeu vidéo (et au sens large informatique) le plus ambitieux que je réalise.</h3>
+            <img class="banner" src="images/projet-frosthorn.png" alt="FrostHorn" class="project-image">
+            <div class="tag-list">
+                <span class="tag red-tag">En cours !</span>
+                <span class="tag blue-tag">Jeu</span>
+                <span class="tag blue-tag">Projet personnel</span>
+                <span class="tag purple-tag">Godot</span>
+                <span class="tag purple-tag">GDScript</span>
+                <span class="tag purple-tag">C++</span>
+                <span class="tag purple-tag">Node JS</span>
+            </div>
+            <p>• FrostHorn est sans nul doute le projet informatique le plus important que je développe actuellement. Ce projet, conçu au sein d'une équipe de neuf personnes, a pour but de concevoir un jeu vidéo d'aventure, de construction et de gestion, en deux dimensions, dans un univers anéanti par une guerre sans précédent.</p>
+            <p>• Ce jeu mêle l'aspect créatif, le goût du développement et la coordination en équipe. Nous utilisons <a href="https://github.com/U-Night/FrostHorn" target=”_blank”>GitHub</a> pour faire évoluer le jeu, avons un serveur Discord dans lequel chacun contribue à l'apport d'idées. Organiser le travail d'équipe ? C'est possible grâce aux outils de <a href="https://www.notion.com/fr" target=”_blank”>Notion</a>. Enfin, nous organisons mensuellement des réunions physiques dans notre bibliothèque universitaire pour marquer l'avancement du projet et plancher sur les prochaines tâches !</p>
+            <p>• Le projet étant relativement récent, nous n'avons pas encore de prototype complet de jeu, mais nous préparons le terrain. Le jeu utilisera le moteur de jeu <b>Godot</b>.</p>
+            <p>• Au stade actuel des choses, nous sommes déjà détenteurs d'un site web statique que nous développons en parallèle : https://wiki.u-night.org, et qui contiendra à l'avenir toute la documentation utile au jeu (en matière d'histoire, d'objets, de fonctionnalités etc.). Pour ce faire, nous utilisons l'outil <a href="https://docusaurus.io" target=”_blank”>Docusaurus</a>, ainsi que le langage Node.Js. Le lien du projet GitHub et celui du site vous sont fournis en bas de cette page !</p>
+            <img src="images/projet-frosthorn-logo-corne.png" alt="FrostHorn" class="project-image" style="width: 200px;">
+            <img src="images/projet-frosthorn-reunion.png" alt="FrostHorn" class="project-image" style="width: 300px;">
+            <img src="images/projet-frosthorn-textures.png" alt="FrostHorn" class="project-image" style="width: 300px;">
+            <p>• Au fait, précisons aussi que je suis chargé du design sonore : je crée les musiques et sons d'ambiance utilisés dans le jeu. Vous pouvez en retrouver des extraits dans mon projet "Musique" ! Je fais aussi partie de l'équipe dédiée à l'histoire, dont j'élabore le script sur le site de la documentation (section <a href="https://wiki.u-night.org/category/game-lore" target="_blank">Game Lore</a>). Enfin, je contribue sur le plan esthétique du jeu et notre image : j'ai notamment conçu les logos utilisés pour notre équipe : U-Night !</p>
+            <img src="images/logo-unight-complet.png" alt="Logo U-Night complet" class="project-image" style="width: 300px;">
+            <img src="images/logo-unight.png" alt="FrostHorn" class="project-image" style="width: 100px;">
+            <h4><i class="fa-solid fa-link"></i> Liens annexes</h4>
+            <p class="link"><a href="https://github.com/U-Night/FrostHorn" target=”_blank”><i class="fa-brands fa-github"></i> GitHub du projet</a></p>
+            <p class="link"><a href="https://github.com/U-Night/wiki" target=”_blank”><i class="fa-solid fa-book"></i> GitHub de la documentation</a></p>
+            <p class="link"><a href="https://wiki.u-night.org" target=”_blank”><i class="fa-solid fa-globe"></i> Site de la documentation</a></p>
+        </div>
     </div>
-  </section>
 
-</div><!-- /page -->
+    <!-- Projet YOUTUBE LOCAL DOWNLOADER -->
+    <div class="modal" id="modal-projet2">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-projet2')">&times;</span>
+            <h2>YouTube Local Downloader</h2>
+            <h3>Une application permettant de télécharger des contenus sur YouTube en local, et son site intranet.</h3>
+            <img class="banner" src="images/projet-yld-banniere.png" alt="Projet 2" class="project-image">
+            <div class="tag-list">
+                <span class="tag blue-tag">Projet personnel</span>
+                <span class="tag blue-tag">Application</span>
+                <span class="tag blue-tag">Site intranet</span>
+                <span class="tag purple-tag">Python</span>
+                <span class="tag purple-tag">HTML</span>
+                <span class="tag purple-tag">Javascript</span>
+                <span class="tag purple-tag">API</span>
+                <span class="tag purple-tag">Json</span>
+            </div>
+            <p>• YouTube Local Downloader est un projet personnel visant à concevoir une application de téléchargement de vidéos YouTube aux formats MP4 et MP3.</p>
+            <p>• J'ai majoritairement utilisé le langage Python pour concevoir l'interface graphique. La fonction de téléchargement des vidéos est quant à elle gérée par la librairie PyTube qui exploite l'API de YouTube.</p>
+            <img src="images/projet-yld.png" style="width: 600px;">
+            <img src="images/projet-yld-site.png" style="width: 600px;">
+            <p>L'application est axée sur la facilité et aide l'utilisateur, par exemple via un site intranet (local et non déployé sur Internet) que l'utilisateur peut consulter à partir de l'application pour trouver des aides.</p>
+            <img src="images/yld-aide-gif.gif" style="width: 500px;">
+            <p>• Ce projet d'expérimentation - n'ayant jamais été déployé ni mis à jour - est malheureusement obsolète en raison de modifications réalisées sur l'API. Toutefois, vous pouvez accéder à la page GitHub du projet si vous souhaitez télécharger, essayer et naviguer dans l'application !</p>
+            <h4><i class="fa-solid fa-link"></i> Liens annexes</h4>
+            <p class="link"><a href="https://github.com/ScreanDev/youtube-local-downloader" target=”_blank”><i class="fa-brands fa-github"></i> GitHub du projet</a></p>
+        </div>
+    </div>
 
-<footer>
-  © 2025 Christian Sidibe — Portfolio BUT Informatique
-</footer>
+    <!-- Projet BOT DISCORD -->
+    <div class="modal" id="modal-projet3">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-projet3')">&times;</span>
+            <h2>WiseBot : Bot Discord de divertissement</h2>
+            <h3>Un "bot" de divertissement interactif pour Discord, disposant d'une panoplie de commandes amusantes et de mini jeux.</h3>
+            <img class="banner" src="images/projet-wisebot-banniere.png" alt="FrostHorn" class="project-image">
+            <div class="tag-list">
+                <span class="tag blue-tag">Projet personnel</span>
+                <span class="tag blue-tag">Application</span>
+                <span class="tag purple-tag">SQLite (Bases de données)</span>
+                <span class="tag purple-tag">Python</span>
+                <span class="tag purple-tag">Commandes asynchrones</span>
+                <span class="tag purple-tag">API</span>
+            </div>
+            <p>• WiseBot est un bot pour Discord : une application interactive que les utilisateurs peuvent utiliser grâce à des <a href="https://discord-france.fr/commandes-slash"><i>commandes slash</i></a>.</p>
+            <p>• J'ai conçu ce projet dans l'optique de déployer un bot axé sur le divertissement. Ainsi, les membres d'un serveur peuvent l'utiliser pour faire des blagues, jouer de la musique, attribuer des rôles, créer des QCM, des sondages, générer un contenu aléatoire, créer des événements... et bien plus !</p>
+            <p>• Le bot est conçu en Python, et utilise la librairie <a href="https://discordpy.readthedocs.io/en/stable/" target="_blank">Discord.py</a> pour interagir avec l'API de Discord. Il utilise également SQLite pour stocker les données des utilisateurs.</p>
+            <p>• Il est également conçu pour être asynchrone, ce qui permet de gérer plusieurs commandes en même temps sans ralentir le serveur Discord.</p>
+            <img src="images/projet-wisebot-countdown.png" alt="FrostHorn" class="project-image" style="width: 300px;">
+            <img src="images/projet-wisebot-sql.png" alt="FrostHorn" class="project-image" style="width: 300px;">
+            <img src="images/projet-wisebot-morse.png" alt="FrostHorn" class="project-image" style="width: 300px;">
+        </div>
+    </div>
 
+    <!-- Projet S102 -->
+    <div class="modal" id="modal-projet4">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-projet4')">&times;</span>
+            <h2>Mini jeu vidéo en C++</h2>
+            <h3>Un mini jeu vidéo en top-down codé en C++ dans le cadre d'un projet scolaire.</h3>
+            <img class="banner" src="images/projet-s102-banniere.png" alt="FrostHorn" class="project-image">
+            <div class="tag-list">
+                <span class="tag orange-tag">Projet scolaire</span>
+                <span class="tag blue-tag">Qualité de développement</span>
+                <span class="tag purple-tag">C++</span>
+            </div>
+            <p>• Au premier semestre du BUT informatique que j'entreprends, j'ai été amené à concevoir en quelques semaines un mini jeu vidéo avec le langage C++, à l'aide de Code::Blocks.</p>
+            <p>• Ce projet, réalisé en binôme, a été l'occasion de découvrir les bases du langage C++, ainsi que les bonnes pratiques de développement. Cela inclut la refactorisation du code, l'apprentissage du développement orienté-objet et la gestion des événements dans un jeu.</p>
+            <p>• Le jeu est un mini jeu de type "top-down" dans lequel le joueur doit collecter des objets tout en évitant les ennemis. Le joueur peut se déplacer dans un environnement en 2D, et doit collecter toutes les pièces présentes sur le terrain pour gagner.</p>
+        </div>
+    </div>
+
+    <!-- Projet CODE BREAKERS -->
+     <div class="modal" id="modal-projet5">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-projet5')">&times;</span>
+            <h2>Code Breakers : mini jeu en Python</h2>
+            <h3>Un mini jeu vidéo narratif en top-down créé en classe de Terminale en Python, qui m'a permis d'apprendre la Programmation Orientée Objet.</h3>
+            <img class="banner" src="images/projet-code-breakers-banniere.png" alt="Code Breakers" class="project-image">
+            <div class="tag-list">
+                <span class="tag orange-tag">Projet scolaire</span>
+                <span class="tag blue-tag">Mini jeu</span>
+                <span class="tag blue-tag">Jeu narratif</span>
+                <span class="tag purple-tag">Python</span>
+                <span class="tag purple-tag">Apprentissage de la POO</span>
+            </div>
+            <p>• Code Breakers est un mini jeu vidéo en top-down que j'ai conçu dans le cadre d'un projet scolaire en classe de Terminale, en l'espace de quelques semaines. Ce projet m'a permis d'apprendre la Programmation Orientée Objet (POO) et d'approfondir au sens large mes connaissances en Python.</p>
+            <p>• Un mini jeu à la narration décalée et absurde, faisant la parodie du lycée où j'ai étudié, dont voici le synopsis : le joueur incarne un étudiant du lycée Marguerite URsenar, où le port du jogging est interdit (une véritable cause dans mon lycée dont j'ai souhaité faire la référence de façon humoristique). Le proviseur, Martinez, a promis de lever cette restriction si quelqu'un parvient à trouver son livre secret. Avec l'aide de Yassin, virtuose du clavier et expert en matière de hacking, le lycéen est chargé de retrouver ce livre pour la cause de ses camarades !</p>
+            <p>• Ce projet a été pour moi l'occasion de mêler créativité, narration et code. Il a fallu faire preuve d'innovation pour certains aspects tels que la gestion d'une mini carte, un système de dialogues, et une notion de caméra qui suit le joueur et positionne correctement les éléments selon l'emplacement de cette dernière. De façon autodidacte, j'ai également pu comprendre le fonctionnement de l'héritage en développement.</p>
+            <img src="images/projet-code-breakers-img-gameplay-1.png" alt="Code Breakers, image de gameplay 1" class="project-image" style="width: 400px;">
+            <img src="images/projet-code-breakers-img-gameplay-2.png" alt="Code Breakers, image de gameplay 2" class="project-image" style="width: 400px;">
+            <img src="images/projet-code-breakers-img-gameplay-3.png" alt="Code Breakers, image de gameplay 3" class="project-image" style="width: 350px;">
+            <img src="images/projet-code-breakers-img-gameplay-4.png" alt="Code Breakers, image de gameplay 4" class="project-image" style="width: 350px;">
+            <img src="images/projet-code-breakers-img-gameplay-5.png" alt="Code Breakers, image de gameplay 5" class="project-image" style="width: 200px;">
+            <img src="images/projet-code-breakers-tileset.png" alt="Code Breakers, pack de tuiles" class="project-image" style="width: 400px;">
+            <img src="images/projet-code-breakers-img-maps.png" alt="Code Breakers, cartes" class="project-image" style="width: 400px;">
+            <p></p>
+            <p class="link"><a href="https://github.com/ScreanDev/code-breakers--nsi" target=”_blank”><i class="fa-brands fa-github"></i> GitHub du projet</a></p>
+        </div>
+    </div>
+
+    <!-- Projet BEST-OF -->
+    <div class="modal" id="modal-projet6">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-projet6')">&times;</span>
+            <h2>Le Best-of</h2>
+            <h3>Un défi pour le moins original que je me fixe chaque année, qui consiste à créer une vidéo de plus d'une heure compilant les moments mémorables enregistrés avec mon entourage.</h3>
+            <img class="banner" src="images/best-of-montage.png" alt="FrostHorn" class="project-image">
+            <div class="tag-list">
+                <span class="tag blue-tag">Projet personnel</span>
+                <span class="tag blue-tag">Original</span>
+                <span class="tag blue-tag">Artistique</span>
+            </div>
+            <p>• Depuis trois ans, je prépare annuellement une grande vidéo "best-of", compilant tous les instants enregistrés avec mes amis dans une vidéo montée et embellie par mes propres dessins, musiques, animations et histoires !</p>
+            <p>• C'est à la fois un jeu amusant mais également une façon pour moi et mes proches de créer et conserver des souvenirs sur des instants qui nous ont marqués. Ainsi, j'enregistre régulièrement des clips, puis je les ajoute à la vidéo ! Et à chaque fin d'année, cette dernière est publiée et permet à chacun de se remémorer les moments forts des 365 jours passés !</p>
+        </div>
+    </div>
+
+
+    <section id="contact" class="contact-section">
+        <div class="container right-container">
+            <section class="title-block">
+                <h2>Gardons contact</h2>
+                <h3></h3>
+                <p>Vous souhaitez me contacter ? Voici mes informations !</p>
+            </section>
+        </div>
+        <div class="contact-container">
+            <div class="contact-block" onclick="copyToClipboard(this)">
+                <i class="fa-solid fa-phone"></i>
+                <h3>Téléphone</h3>
+                <p>07 64 20 49 26</p>
+            </div>
+            <div class="contact-block" onclick="copyToClipboard(this)">
+                <i class="fa-solid fa-envelope"></i>
+                <h3>Email universitaire</h3>
+                <p><a href="mailto:lucas.pause-chapuis@universite-paris-saclay.fr">lucas.pause-chapuis@universite-paris-saclay.fr</a></p>
+            </div>
+            <div class="contact-block">
+                <a href="https://github.com/ScreanDev" target="_blank">
+                <i class="fa-brands fa-github"></i>
+                <h3>GitHub</h3>
+                <p>Voir mon profil</p>
+                </a>
+            </div>
+            <div class="contact-block">
+                <a href="https://www.linkedin.com/in/lucas-pausé-chapuis-3a438432b/" target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <p>Voir mon profil</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Zone pour la notification -->
+        <div id="copy-notification">Copié dans le presse-papiers !</div>
+    </section>
 </body>
+
+
+
+
+
+<script>
+function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.classList.add("show");
+    document.body.classList.add("modal-open");
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    modal.classList.remove("show");
+    document.body.classList.remove("modal-open");
+}
+
+window.addEventListener("click", function (e) {
+    document.querySelectorAll(".modal").forEach(modal => {
+        if (e.target === modal) {
+            modal.classList.remove("show");
+            document.body.classList.remove("modal-open");
+        }
+    });
+});
+
+function copyToClipboard(element) {
+  const textToCopy = element.querySelector("p").innerText;
+
+  navigator.clipboard.writeText(textToCopy)
+    .then(() => {
+      alert("Texte copié : " + textToCopy);
+    })
+    .catch(err => {
+      console.error("Erreur lors de la copie :", err);
+    });
+}
+
+
+function copyToClipboard(element) {
+  const textToCopy = element.querySelector("p").innerText;
+
+  navigator.clipboard.writeText(textToCopy)
+    .then(() => {
+      const notif = document.getElementById("copy-notification");
+      notif.classList.add("show");
+      setTimeout(() => {
+        notif.classList.remove("show");
+      }, 2000); // Disparaît après 2 secondes
+    })
+    .catch(err => {
+      console.error("Erreur lors de la copie :", err);
+    });
+}
+
+</script>
+
+
 </html>
