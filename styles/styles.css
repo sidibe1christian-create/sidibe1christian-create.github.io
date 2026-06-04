@@ -841,6 +841,9 @@ body.modal-open {
     border-radius: 20px;
     transition: width 1s ease;
 }
+.hard-skills {
+    margin-bottom: 2em;
+}
 #copy-notification.show {
   opacity: 1;
 }
